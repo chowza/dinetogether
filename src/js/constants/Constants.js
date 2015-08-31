@@ -2,10 +2,13 @@ import keyMirror from 'keymirror'
 
 var ActionTypes = keyMirror({
 
+	REQUEST_CONTACTS:null,
 	RECEIVE_CONTACTS:null,
+	INVALIDATE_CONTACTS:null,
 
-	RECEIVE_ALL_MEALS:null,
-	RECEIVE_MY_MEALS:null,
+	REQUEST_MEALS:null,
+	INVALIDATE_MEALS:null,
+	RECEIVE_MEALS:null,
 	CREATE_MEAL: null,
 	JOIN_MEAL:null,
 	CANCEL_MEAL:null,
@@ -14,10 +17,13 @@ var ActionTypes = keyMirror({
     TOGGLE_MENU:null,
 
 	CREATE_MESSAGE: null,
+	REQUEST_MESSAGES:null,
     RECEIVE_MESSAGES:null,
+    INVALIDATE_MESSAGES:null,
 
-    RECEIVE_USER_DATA:null,
-    RECEIVE_MY_DATA:null
+    REQUEST_PROFILE:null,
+    RECEIVE_PROFILE:null,
+    INVALIDATE_PROFILE:null,
     
 })
 

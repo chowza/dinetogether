@@ -1,42 +1,13 @@
-//This file preprocessed by gulp-preprocess. Only the variable where the if statement evaluates to true remains
+//DEVELOPMENT vs PRODUCTION defined in webpack configs, takes from process.env.DEVELOPMENT and process.env.PRODUCTION
+var Global = {};
 
-// @if ENV='local'
-var Global = {
-    env: 'local',
-    host: 'http://localhost:8001/',
-    fbID: '',
-    debug: true,
-    api: ''
-};
-// @endif
+if (DEVELOPMENT){
+    Global.host = 'http://localhost:8080/src'
+}
 
+if (PRODUCTION){
+    //TODO: use correct url
+    Global.host = 'http://someurl.com'
+}
 
-// @if ENV='dev'
-var Global = {
-    env: 'dev',
-    host: '',
-    fbID: '',
-    debug: true,
-    api: ''
-};
-// @endif
-// @if ENV='test'
-var Global = {
-    env: 'test',
-    host: '',
-    fbID: '',
-    debug: false,
-    api: ''
-};
-// @endif
-// @if ENV='prod'
-var Global = {
-    env: 'prod',
-    host: '',
-    fbID: '',
-    debug: false,
-    api: ''
-};
-// @endif
-
-module.exports = Global
+export default Global

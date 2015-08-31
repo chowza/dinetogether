@@ -1,12 +1,12 @@
 import Immutable from 'immutable'
-import ActionTypes from 'constants/Constants';
+import ActionTypes from 'js/constants/Constants';;
 
 
 let initialState = Immutable.Map({
 	menuState:false,
 });
 
-function menuReducer(state=initialState,action){
+export default function menuReducer(state=initialState,action){
 	switch(action.type){
 		case ActionTypes.TOGGLE_MENU:
 			return state.set('menuState',!state.get('menuState'))
@@ -14,5 +14,3 @@ function menuReducer(state=initialState,action){
 			return state
 	}
 }
-
-module.exports = menuReducer
