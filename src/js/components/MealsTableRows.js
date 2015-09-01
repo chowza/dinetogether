@@ -10,7 +10,6 @@ export default class MealsTableRows extends Component {
 
 	render(){
 
-
 		var rows = this.props.meals.map(function(meal){
 			// <Link to="profile" params={{userId:meal.user.id}} className="profile">
 			// 			<ProfileImage image={meal.user.image}/>

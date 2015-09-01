@@ -9,20 +9,30 @@ export class MealsTable extends Component {
 
 	constructor(props){
 		super(props)
-		console.log(this.props)
 	}
 	
 	componentDidMount(){
 		const { dispatch } = this.props;
-		dispatch(fetchMealsIfNeeded('allMeals'))
+		console.log("component did mount")
+		dispatch(fetchMealsIfNeeded(this.props.routeParams.userId))
+	}
+
+	componentWillReceiveProps(nextProps){
+		const { dispatch } = this.props;
+
+		console.log("componentWillReceiveProps", this.props.routeParams.userId != nextProps.routeParams.userId)
+		if (this.props.routeParams.userId != nextProps.routeParams.userId){
+			dispatch(fetchMealsIfNeeded(nextProps.routeParams.userId))
+		}
 	}
 
 	render(){
 		const {mealsReducer} = this.props
+		const meals = mealsReducer.get(this.props.routeParams.userId) ? mealsReducer.get(this.props.routeParams.userId).items.toJS() : [];
 		return (
 			<div>
 				<div> Meal Table Header </div>
-				<MealsTableRows meals={mealsReducer.get('allMeals').items.toJS()}/>
+				<MealsTableRows meals={meals}/>
 			</div>
 		)
 	}

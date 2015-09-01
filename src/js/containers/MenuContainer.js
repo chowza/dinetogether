@@ -20,15 +20,15 @@ class MenuContainer extends React.Component {
 	render(){
 		const {profileReducer,menuReducer} = this.props
 		let profile = profileReducer.get(999) || profileReducer.get('emptyProfile')
+		var id = profile.data.get('id') || 'notAvailable'
 
-// 				<Link to="myMeals" params={{profileId:1}}>My Meals</Link>
-//				<Link to="settings">Settings</Link>
 		return (
 			<div className={menuReducer.get('menuState')}>
 				<ProfileImage image={profile.data.get('image')}/>
 				<Link to="/">Home</Link>
-				<Link to="contactsTable">Contacts</Link>
-				<Link to="meals/1">My Meals</Link>
+				<Link to="/contactsTable">Contacts</Link>
+				<Link to={`/meals/${id}`}>My Meals</Link>
+				<Link to="/settings">Settings</Link>
 			</div>
 		)
 	}

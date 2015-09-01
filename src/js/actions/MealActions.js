@@ -34,7 +34,9 @@ function fetchMeals(requestType){
 
 function shouldFetchMeals(state,requestType){
   const meals = state.mealsReducer.get(requestType)
-  if (!meals.items.size){
+  if (!meals){
+    return true
+  } else if (!meals.items.size){
     return true
   } else if (meals.isFetching){
     return false

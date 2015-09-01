@@ -15,8 +15,8 @@ const reducer = combineReducers({ contactsReducer, mealsReducer, menuReducer, me
 const logger = createLogger();
 
 const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware, // lets us dispatch() functions
-  logger // neat middleware that logs actions
+  thunkMiddleware // lets us dispatch() functions
+  // logger // neat middleware that logs actions
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

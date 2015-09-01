@@ -19,10 +19,12 @@ function sortByDistance(a,b) { return a.distance - b.distance }
 export default function mealsReducer(state=initialState,action){
 	switch(action.type){
 		case ActionTypes.REQUEST_MEALS:
+
+			var items = state.get(action.requestType) ? state.get(action.requestType).items : Immutable.List();
 			return state.set(action.requestType,{
 				isFetching:true,
 				didInvalidate:false,
-				items:state.get(action.requestType).items
+				items: items
 			})
 
 		case ActionTypes.INVALIDATE_MEALS:

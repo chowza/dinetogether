@@ -8,6 +8,7 @@ export default class Meal extends Component {
 		//<div className="ingredients">{this.props.meal.ingredients}</div>
 		//<div className="recommendedDonation">{this.props.meal.recommendedDonation}</div>
 
+		
 		return (
 			<div className="meal">
 				

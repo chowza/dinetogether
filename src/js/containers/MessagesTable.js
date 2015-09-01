@@ -5,7 +5,7 @@ import Immutable from 'immutable'
 import {fetchMessagesIfNeeded} from 'js/actions/MessagesActions.js'
 import Messages from 'js/components/Messages.js'
 
-export class MessagesTable extends Component {
+class MessagesTable extends Component {
 	constructor(props){
 		super(props)
 	}

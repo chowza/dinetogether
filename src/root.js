@@ -9,17 +9,18 @@ import store from 'js/store/Store'
 
 import {Route,Router,Redirect} from 'react-router'
 import HashHistory from 'react-router/lib/HashHistory';
+import BrowserHistory from 'react-router/lib/BrowserHistory';
 
 import App from 'js/app'
 import MealsTable from "js/containers/MealsTable"
 import ContactsTable from "js/containers/ContactsTable"
 import MessagesTable from "js/containers/MessagesTable"
-
+import Settings from "js/components/Settings"
 
 // import MyMeals from "component/MyMeals/MyMeals"
 
-// import Settings from "component/Settings/Settings"
-// import MessagesTable from "component/MessagesTable/MessagesTable"
+
+
 // import Profile from "component/Profile/Profile"
 // import CreateMeal from "component/CreateMeal/CreateMeal"
 
@@ -30,7 +31,7 @@ import MessagesTable from "js/containers/MessagesTable"
 //<Route path="profile" path="/profile/:userId" component={Profile}/>
 //<Route path="createMeal" component={CreateMeal}/>
 
-const history = new HashHistory();
+const history = new BrowserHistory();
 
 class Root extends Component {
 	render(){
@@ -39,10 +40,12 @@ class Root extends Component {
 				{()=> 
 					<Router history ={history}>
 						<Route component={App}>
-							<Redirect from="/" to="/meals/allMeals" />
+							<Redirect from="/" to="meals/allMeals" />
+							<Redirect from="/index" to="meals/allMeals" />
 							<Route path="meals/:userId" component={MealsTable} />
 							<Route path="contactsTable" component={ContactsTable}/>
-						    <Route path="messagesTable" component={MessagesTable}/>
+						    <Route path="messagesTable/:chatId" component={MessagesTable}/>
+						    <Route path="settings" component={Settings}/>
 					  	</Route>
 					</Router>
 				}

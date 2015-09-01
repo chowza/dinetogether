@@ -1,6 +1,6 @@
-import {Component} from 'react'
+import React, {Component} from 'react'
 
-export class Settings extends Component {
+export default class Settings extends Component {
 
 	render(){
 		return (

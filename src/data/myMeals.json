@@ -1,4 +1,10 @@
-[{"confirmStatus":"Confirmed","chefId":1,"mealName":"Pasta","servingTime":"7:05pm","location":"Toronto","mealId":2},
-	{"confirmStatus":"Pending Confirm","chefId":3,"mealName":"Pizza","servingTime":"8:05pm","location":"Toronto","mealId":3},
-	{"confirmStatus":"Pending Confirm","chefId":5,"mealName":"Candy","servingTime":"9:05pm","location":"Toronto","mealId":5}
-]
+[{"id":1,"meal":{"mealName":"noodles","servingSize":6,"servingTime":"1:53 PM","cuisineType":"american"},"user":{"id":1,"rating":1.8,"image":"randomPersonProfileImage.jpg"},"distance":10,"joinStatus":"normal"},
+{"id":2,"meal":{"mealName":"sandwich","servingSize":5,"servingTime":"12:21 PM","cuisineType":"dessert"},"user":{"id":2,"rating":3,"image":"randomPersonProfileImage.jpg"},"distance":1,"joinStatus":"requested"},
+{"id":3,"meal":{"mealName":"ox tail","servingSize":5,"servingTime":"12:28 AM","cuisineType":"italian"},"user":{"id":3,"rating":4.1,"image":"randomPersonProfileImage.jpg"},"distance":0,"joinStatus":"joined"},
+{"id":4,"meal":{"mealName":"pizza","servingSize":4,"servingTime":"4:50 PM","cuisineType":"canadian"},"user":{"id":4,"rating":3.8,"image":"randomPersonProfileImage.jpg"},"distance":90,"joinStatus":"requested"},
+{"id":95,"meal":{"mealName":"ox tail","servingSize":5,"servingTime":"8:08 PM","cuisineType":"french"},"user":{"id":95,"rating":2.9,"image":"randomPersonProfileImage.jpg"},"distance":1550,"joinStatus":"requested"},
+{"id":96,"meal":{"mealName":"fish","servingSize":5,"servingTime":"7:40 PM","cuisineType":"italian"},"user":{"id":96,"rating":4.1,"image":"randomPersonProfileImage.jpg"},"distance":150,"joinStatus":"joined"},
+{"id":97,"meal":{"mealName":"sandwich","servingSize":4,"servingTime":"11:37 PM","cuisineType":"french"},"user":{"id":97,"rating":2,"image":"randomPersonProfileImage.jpg"},"distance":106,"joinStatus":"normal"},
+{"id":98,"meal":{"mealName":"chips","servingSize":4,"servingTime":"10:59 AM","cuisineType":"canadian"},"user":{"id":98,"rating":1.3,"image":"randomPersonProfileImage.jpg"},"distance":106,"joinStatus":"requested"},
+{"id":99,"meal":{"mealName":"braised beef","servingSize":2,"servingTime":"2:03 AM","cuisineType":"dessert"},"user":{"id":99,"rating":4.9,"image":"randomPersonProfileImage.jpg"},"distance":610,"joinStatus":"joined"},
+{"id":100,"meal":{"mealName":"pasta","servingSize":2,"servingTime":"2:55 PM","cuisineType":"dessert"},"user":{"id":100,"rating":4.9,"image":"randomPersonProfileImage.jpg"},"distance":6410,"joinStatus":"joined"}]
