@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import {Link} from 'react-router'
 
 export default class ProfileImage extends Component {
 
@@ -7,7 +8,7 @@ export default class ProfileImage extends Component {
 		let profileImage = {backgroundImage: 'url(' + imgUrl + ')'}
 
 		return (
-			<div style={profileImage}></div>
+			<Link to={`/profile/${this.props.id}`} style={profileImage}>My Profile Image</Link>
 		)
 	}
 }

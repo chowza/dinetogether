@@ -2,6 +2,6 @@
 	"id":"1",
 	"name":"Bob",
 	"image":"myProfileImage.jpg",
-	"rating":"4",
+	"rating":4,
 	"bio":"blah blah blah i was born"
 }

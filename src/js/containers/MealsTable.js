@@ -13,14 +13,11 @@ export class MealsTable extends Component {
 	
 	componentDidMount(){
 		const { dispatch } = this.props;
-		console.log("component did mount")
 		dispatch(fetchMealsIfNeeded(this.props.routeParams.userId))
 	}
 
 	componentWillReceiveProps(nextProps){
 		const { dispatch } = this.props;
-
-		console.log("componentWillReceiveProps", this.props.routeParams.userId != nextProps.routeParams.userId)
 		if (this.props.routeParams.userId != nextProps.routeParams.userId){
 			dispatch(fetchMealsIfNeeded(nextProps.routeParams.userId))
 		}

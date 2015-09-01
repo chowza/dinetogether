@@ -15,20 +15,12 @@ import App from 'js/app'
 import MealsTable from "js/containers/MealsTable"
 import ContactsTable from "js/containers/ContactsTable"
 import MessagesTable from "js/containers/MessagesTable"
+import Profile from "js/containers/ProfileContainer"
 import Settings from "js/components/Settings"
 
-// import MyMeals from "component/MyMeals/MyMeals"
 
-
-
-// import Profile from "component/Profile/Profile"
 // import CreateMeal from "component/CreateMeal/CreateMeal"
 
-// import NavHeader from "component/Shared/NavHeader/NavHeader"
-// import Menu from "component/Shared/Menu/Menu"
-//<Route path="myMeals" path="/myMeals/:userId" component={MyMeals}/>
-//<Route path="settings" component={Settings}/>
-//<Route path="profile" path="/profile/:userId" component={Profile}/>
 //<Route path="createMeal" component={CreateMeal}/>
 
 const history = new BrowserHistory();
@@ -46,6 +38,7 @@ class Root extends Component {
 							<Route path="contactsTable" component={ContactsTable}/>
 						    <Route path="messagesTable/:chatId" component={MessagesTable}/>
 						    <Route path="settings" component={Settings}/>
+						    <Route path="profile/:userId" component={Profile}/>
 					  	</Route>
 					</Router>
 				}

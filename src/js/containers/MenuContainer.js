@@ -24,7 +24,7 @@ class MenuContainer extends React.Component {
 
 		return (
 			<div className={menuReducer.get('menuState')}>
-				<ProfileImage image={profile.data.get('image')}/>
+				<ProfileImage image={profile.data.get('image')} id={id}/>
 				<Link to="/">Home</Link>
 				<Link to="/contactsTable">Contacts</Link>
 				<Link to={`/meals/${id}`}>My Meals</Link>
