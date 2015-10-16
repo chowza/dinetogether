@@ -13,11 +13,10 @@ export class ContactsTable extends Component {
 
 	componentDidMount(){
 		const { dispatch } = this.props;
-		dispatch(fetchContactsIfNeeded())
+		dispatch(fetchContactsIfNeeded(this.props.profileId))
 	}
 
 	render(){
-		
 		const {contactsReducer } = this.props;
 		return <Contacts contacts={contactsReducer.get('contacts').toJS()}/>
 	}

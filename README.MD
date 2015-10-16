@@ -10,7 +10,6 @@ Meet more people who live in your building!
 
 Practice your cooking skills!
 
-
 -----
 
 This is also an app for me to try out react, redux and es6. 
@@ -43,3 +42,13 @@ Immediate
 
 future
 - payment system
+
+------------
+
+To Develop
+1. go to root directory in terminal
+2. type command: webpack-dev-server
+3. go to localhost:8080/webpack-dev-server/index.html in your browser. Changes to files will auto refresh your browser.
+
+To build
+1. type command: webpack

@@ -17,7 +17,7 @@ export default class MealsTableRows extends Component {
 			// 		</Link>
 			return (
 				<div key={meal.id}>
-					<Meal meal={meal.meal}/>
+					<Meal meal={meal}/>
 					<JoinButton joinStatus={meal.joinStatus}/>
 				</div>
 			)

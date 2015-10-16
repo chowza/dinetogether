@@ -24,6 +24,8 @@ var ActionTypes = keyMirror({
     REQUEST_PROFILE:null,
     RECEIVE_PROFILE:null,
     INVALIDATE_PROFILE:null,
+
+    GET_LOGIN_STATUS:null
     
 })
 

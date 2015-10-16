@@ -12,7 +12,7 @@ export default class Meal extends Component {
 		return (
 			<div className="meal">
 				
-				<div className="mealName">{this.props.meal.mealName}</div>
+				<div className="mealName">{this.props.meal.name}</div>
 				<div className="servingSize">{this.props.meal.servingSize}</div>
 				<div className="servingTime">{this.props.meal.servingTime}</div>
 				

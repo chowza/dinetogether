@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
 
-import {fetchMessagesIfNeeded} from 'js/actions/MessagesActions.js'
+import {fetchMessagesIfNeeded,fetchMessages} from 'js/actions/MessagesActions.js'
 import Messages from 'js/components/Messages.js'
 
 class MessagesTable extends Component {
@@ -10,14 +10,14 @@ class MessagesTable extends Component {
 		super(props)
 	}
 	componentDidMount(){
+		console.log("mounting messages")
 		const { dispatch } = this.props;
-		dispatch(fetchMessagesIfNeeded(999))
+		dispatch(fetchMessagesIfNeeded(this.props.profileId,this.props.routeParams.chatId))
 	}
-
-
+	
 	render(){
 		const {messagesReducer} = this.props
-		let contact = messagesReducer.get(999) || messagesReducer.get('noMessages')
+		let contact = messagesReducer.get(this.props.routeParams.chatId) || messagesReducer.get('noMessages')
 		return <Messages messages={contact.messages.toJS()} />
 	}
 }

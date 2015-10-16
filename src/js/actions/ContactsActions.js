@@ -15,10 +15,10 @@ function receiveContacts(details){
         }
 }
 
-function fetchContacts(){
+function fetchContacts(profileId){
   return dispatch => {
     dispatch(requestContacts());
-    return fetch(Global.host + '/data/contactsData.json')
+    return fetch(`${Global.host}/users/${profileId}/chatGroups`)
         .then(response => response.json())
         .then(json => dispatch(receiveContacts(json)))  
   }
@@ -26,6 +26,9 @@ function fetchContacts(){
 
 function shouldFetchContacts(state){
   const reducer = state.contactsReducer
+  
+  //TODO: handle when contacts size changes (or return true to always update contacts, but that seems unnecessary, you wont increase contact commonly enough)
+
   if (!reducer.get('contacts').size){
     return true
   } else if (reducer.get('isFetching')){
@@ -35,10 +38,10 @@ function shouldFetchContacts(state){
   }
 }
 
-export function fetchContactsIfNeeded(){
+export function fetchContactsIfNeeded(profileId){
   return (dispatch,getState) => {
     if (shouldFetchContacts(getState())){
-      return dispatch(fetchContacts())
+      return dispatch(fetchContacts(profileId))
     } else {
       return Promise.resolve();
     }

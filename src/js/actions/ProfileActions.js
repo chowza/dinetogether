@@ -17,13 +17,13 @@ function receiveProfile(profileId,details){
         }
 }
 
-function fetchProfile(profileId){
-  return dispatch => {
-    dispatch(requestProfile(profileId));
-    //TODO: fetch from specific profileId
-    return fetch(Global.host + '/data/userData.json')
-        .then(response => response.json())
-        .then(json => dispatch(receiveProfile(profileId,json)))  
+export function fetchProfileIfNeeded(profileId){
+  return (dispatch,getState) => {
+    if (shouldFetchProfile(getState(),profileId)){
+      return dispatch(fetchProfile(profileId))
+    } else {
+      return Promise.resolve();
+    }
   }
 }
 
@@ -38,12 +38,27 @@ function shouldFetchProfile(state,profileId){
   }
 }
 
-export function fetchProfileIfNeeded(profileId){
-  return (dispatch,getState) => {
-    if (shouldFetchProfile(getState(),profileId)){
-      return dispatch(fetchProfile(profileId))
-    } else {
-      return Promise.resolve();
-    }
+export function fetchProfile(profileId){
+  return dispatch => {
+    dispatch(requestProfile(profileId));
+
+    FB.api("/","POST",{
+        batch: [
+        { method: 'GET', relative_url: `/${profileId}?fields=first_name`},
+        { method: 'GET', relative_url: `/${profileId}/picture?type=normal&redirect=false`}
+        ]
+    }, response => {
+      return fetch(`${Global.host}/users/${profileId}?name=${JSON.parse(response[0].body).first_name}&image=${encodeURIComponent(JSON.parse(response[1].body).data.url)}`)
+        .then(response => response.json())
+        .then(json => dispatch(receiveProfile(profileId,json)))
+    })
+
+    // FB.api("/" + profileId + "?fields=first_name", response => {
+    //   console.log("fetching logged in person's info",response)
+    //   return fetch(Global.host + '/users/' + profileId +"?name=" + response.first_name)
+    //     .then(response => response.json())
+    //     .then(json => dispatch(receiveProfile(profileId,json)))  
+    // })
   }
 }
+

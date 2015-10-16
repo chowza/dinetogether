@@ -11,7 +11,7 @@ export default class Contacts extends Component {
 
 		//<Link to="messagesTable" params={{chatId:contact.id}} key={contact.id}>{contact.name}</Link>
 		var contacts = this.props.contacts.map(function(contact){
-			return <Link to={"messagesTable/${contact.id}"} key={contact.id}>{contact.name}</Link>
+			return <Link to={`/messagesTable/${contact.id}`} key={contact.id}>{contact.name}</Link>
 		})
 
 		return (

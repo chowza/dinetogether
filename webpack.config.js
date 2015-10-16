@@ -11,9 +11,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader' },
-            { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' },
-            { test: /\.jade$/, loader: 'jade-loader' }
-
+            { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
         ]
     },
     resolve: {
@@ -27,6 +25,5 @@ module.exports = {
         })
     ],
     debug:JSON.parse(process.env.DEVELOPMENT || true),
-    devtool:(process.env.PRODUCTION ? "eval" : "source-map")
-
+    devtool:(process.env.PRODUCTION ? "eval" : "source-map"),
 };

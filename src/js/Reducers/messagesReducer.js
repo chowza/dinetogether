@@ -22,10 +22,11 @@ export default function messagesReducer(state=initialState,action){
 				messages: contact.messages
 			})
 		case ActionTypes.RECEIVE_MESSAGES:
+			console.log(action.details)
 			return state.set(action.contactId,{
 				isFetching:false,
 				didInvalidate:false,
-				messages: Immutable.List(action.details.sort(sortByLastMessage))
+				messages: Immutable.List(action.details.messages)
 			})
 		case ActionTypes.INVALIDATE_MESSAGES:
 			return state.set(action.contactId,{

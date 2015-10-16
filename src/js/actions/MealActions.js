@@ -21,11 +21,11 @@ function fetchMeals(requestType){
   return dispatch => {
     dispatch(requestMeals(requestType));
     if (requestType == 'allMeals'){
-      return fetch(Global.host + '/data/mockData.json')
+      return fetch(`${Global.host}/meals`)
         .then(response => response.json())
         .then(json => dispatch(receiveMeals(requestType,json)))  
     } else {
-      return fetch(Global.host + '/data/myMeals.json')
+      return fetch(`${Global.host}/users/${requestType}/meals`)
         .then(response => response.json())
         .then(json => dispatch(receiveMeals(requestType,json)))
     }
