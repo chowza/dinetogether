@@ -20,6 +20,7 @@ import ContactsTable from "js/containers/ContactsTable"
 import MessagesTable from "js/containers/MessagesTable"
 import Profile from "js/containers/ProfileContainer"
 import Settings from "js/components/Settings"
+import CreateMealContainer from "js/containers/CreateMealContainer"
 
 let history;
 
@@ -47,6 +48,7 @@ class Root extends Component {
 					    <Route path="/messagesTable/:chatId" component={MessagesTable}/>
 					    <Route path="/settings" component={Settings}/>
 					    <Route path="/profile/:userId" component={Profile}/>
+					    <Route path="/createMeal" component={CreateMealContainer}/>
 				  	</Route>
 				</Router>
 			</Provider>

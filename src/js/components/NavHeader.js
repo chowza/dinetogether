@@ -10,10 +10,11 @@ export default class NavHeader extends React.Component {
 	}
 
 	render(){
-		//<Link to="createMeal">Create Meal</Link>
+		
 		return (
 			<div className="navHeader">
 				<div className="navHamburger" onClick={this.toggleMenu}>nav hamburger here</div>
+				<Link to="/createMeal">Create Meal</Link>
 			</div>
 		)
 	}

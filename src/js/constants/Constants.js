@@ -9,13 +9,13 @@ var ActionTypes = keyMirror({
 	REQUEST_MEALS:null,
 	INVALIDATE_MEALS:null,
 	RECEIVE_MEALS:null,
-	CREATE_MEAL: null,
+	CREATE_MEAL_SUCCESS: null,
 	JOIN_MEAL:null,
 	CANCEL_MEAL:null,
-    
+    CREATE_MEAL_POST:null,
 
     TOGGLE_MENU:null,
-
+	
 	CREATE_MESSAGE: null,
 	REQUEST_MESSAGES:null,
     RECEIVE_MESSAGES:null,

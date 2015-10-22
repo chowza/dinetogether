@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 
 export default class Meal extends Component {
 	
@@ -15,14 +15,9 @@ export default class Meal extends Component {
 				<div className="mealName">{this.props.meal.name}</div>
 				<div className="servingSize">{this.props.meal.servingSize}</div>
 				<div className="servingTime">{this.props.meal.servingTime}</div>
-				
 				<div className="cuisineType">{this.props.meal.cuisineType}</div>
 				
 			</div>
 		)
 	}
-}
-
-Meal.propTypes = {
-	meal:PropTypes.object
 }

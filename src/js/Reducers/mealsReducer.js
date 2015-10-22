@@ -11,6 +11,10 @@ let initialState = Immutable.Map({
 		isFetching:false,
 		didInvalidate:false,
 		items: Immutable.List()
+	},
+	createMeal:{
+		isFetching:false,
+		isComplete: false
 	}
 });
 
@@ -45,7 +49,7 @@ export default function mealsReducer(state=initialState,action){
 				didInvalidate:false,
 				items:state.get(action.requestType).items.push(action.details)
 			})
-		case ActionTypes.CREATE_MEAL:
+		case ActionTypes.CREATE_MEAL_SUCCESS:
 			return Immutable.Map({
 				allMeals:{
 					isFetching:false,
@@ -56,8 +60,18 @@ export default function mealsReducer(state=initialState,action){
 					isFetching:false,
 					didInvalidate:false,
 					items:state.get('myMeals').items.push(action.details)
+				},
+				createMeal: {
+					isFetching: false,
+					isComplete: true
 				}
 			})
+		case ActionTypes.CREATE_MEAL_POST:
+			return state.set('createMeal',{
+				isFetching:true,
+				isComplete:false
+			})
+
 		case ActionTypes.CANCEL_MEAL:
 			return state.set('myMeals',{
 				isFetching:false,

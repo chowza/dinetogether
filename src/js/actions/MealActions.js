@@ -10,6 +10,7 @@ function requestMeals(requestType){
 }
 
 function receiveMeals(requestType,details){
+  console.log("receiving meals",details)
   return {
             type: ActionTypes.RECEIVE_MEALS,
             requestType,
@@ -52,5 +53,39 @@ export function fetchMealsIfNeeded(requestType){
     } else {
       return Promise.resolve();
     }
+  }
+}
+
+
+function createMealSuccess(details){
+  console.log("successfully created meal with details:",details)
+  return {
+    type: ActionTypes.CREATE_MEAL_SUCCESS,
+    details
+  }
+}
+
+function createMealRequest(){
+  return {
+    type: ActionTypes.CREATE_MEAL_POST
+  }
+}
+
+export function createMealPost(profileId,data){
+  return dispatch =>{
+    dispatch(createMealRequest())
+    return fetch(`${Global.host}/users/${profileId}/meals`,{
+      method:'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      dispatch(createMealSuccess(json))
+    })
   }
 }
